@@ -1,0 +1,132 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <style>
+        body {
+            background-color: #141414; /* Dark background like Netflix */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-box {
+            background-color: #000000; /* Black background for login box */
+            padding: 30px;
+            border-radius: 10px;
+            width: 40%;
+            margin: 50px auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222; /* Dark background for inputs */
+            color: white;
+        }
+
+        .login-box button {
+            background-color: #e50914; /* Netflix Red */
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #f40612; /* Darker red on hover */
+        }
+
+        .login-box p {
+            color: #aaa;
+            text-align: center;
+        }
+
+        .login-box a {
+            color: #e50914; /* Netflix red color for links */
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+
+        .login-box hr {
+            border: 1px solid #444;
+            margin: 20px 0;
+        }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
+    <div class="login-box">
+        <h1>{% trans "Sign In" %}</h1>
+        
+        {% if not SOCIALACCOUNT_ONLY %}
+            <p>{% blocktranslate %}If you have not created an account yet, then please 
+            <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}</p>
+            
+            {% url 'account_login' as login_url %}
+            {% element form form=form method="post" action=login_url tags="entrance,login" %}
+                {% slot body %}
+                    {% csrf_token %}
+                    {% element fields form=form unlabeled=True %}
+                    {% endelement %}
+                    {{ redirect_field }}
+                {% endslot %}
+                {% slot actions %}
+                    <button type="submit">
+                        {% trans "Sign In" %}
+                    </button>
+                {% endslot %}
+            {% endelement %}
+        {% endif %}
+        
+        {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
+            <hr />
+            <div class="button-group">
+                {% if PASSKEY_LOGIN_ENABLED %}
+                    <button type="submit" form="mfa_login" id="passkey_login">
+                        {% trans "Sign in with a passkey" %}
+                    </button>
+                {% endif %}
+                {% if LOGIN_BY_CODE_ENABLED %}
+                    <button onclick="window.location.href='{{ request_login_code_url }}'">
+                        {% trans "Mail me a sign-in code" %}
+                    </button>
+                {% endif %}
+            </div>
+        {% endif %}
+        
+        {% if SOCIALACCOUNT_ENABLED %}
+            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        {% endif %}
+    </div>
+{% endblock content %}
+
+{% block extra_body %}
+    {{ block.super }}
+    {% if PASSKEY_LOGIN_ENABLED %}
+        {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
+    {% endif %}
+{% endblock %}

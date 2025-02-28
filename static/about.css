@@ -1,0 +1,60 @@
+/* Ensure the layout pushes the footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default margin */
+    background-color: #000000;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    flex: 1; /* Allow the main content to grow and push the footer down */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #1c1c1e;
+    padding: 0.5rem;
+}
+
+.navbar-brand {
+    color: #ff3b3f !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-right: 1rem;
+}
+
+.nav-link:hover {
+    color: #ff3b3f !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #ff3b3f, #1c1c1e);
+    color: white;
+    text-align: center;
+    padding: 1rem 2rem; /* Adjusted padding */
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+/* footer {
+    background-color: #1c1c1e;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin: bottom 0px;
+  }
+.x{
+  text-align: center;
+} */

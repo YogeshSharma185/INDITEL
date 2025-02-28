@@ -1,0 +1,125 @@
+{% extends "account/base_entrance.html" %}
+{% load allauth i18n %}
+{% block head_title %}
+    {% trans "Sign Up" %}
+{% endblock head_title %}
+{% block extra_head %}
+    {{ block.super }}
+    <style>
+        body {
+            background-color: #141414; /* Dark background like Netflix */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-box {
+            background-color: #000000; /* Black background for signup box */
+            padding: 30px;
+            border-radius: 10px;
+            width: 40%;
+            margin: 50px auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-box input[type="text"],
+        .signup-box input[type="password"],
+        .signup-box input[type="email"] { /* Added email field styling */
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222; /* Dark background for inputs */
+            color: white;
+        }
+
+        .signup-box button {
+            background-color: #e50914; /* Netflix Red */
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signup-box button:hover {
+            background-color: #f40612; /* Darker red on hover */
+        }
+
+        .signup-box p {
+            color: #aaa;
+            text-align: center;
+        }
+
+        .signup-box a {
+            color: #e50914; /* Netflix red color for links */
+            text-decoration: none;
+        }
+
+        .signup-box a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-box hr {
+            border: 1px solid #444;
+            margin: 20px 0;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
+    <div class="signup-box">
+        <h1>{% trans "Sign Up" %}</h1>
+        
+        {% setvar link %}
+            <a href="{{ login_url }}">
+        {% endsetvar %}
+        {% setvar end_link %}
+            </a>
+        {% endsetvar %}
+        <p>{% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}</p>
+        
+        {% if not SOCIALACCOUNT_ONLY %}
+            {% url 'account_signup' as action_url %}
+            {% element form form=form method="post" action=action_url tags="entrance,signup" %}
+                {% slot body %}
+                    {% csrf_token %}
+                    {% element fields form=form unlabeled=True %}
+                    {% endelement %}
+                    {{ redirect_field }}
+                {% endslot %}
+                {% slot actions %}
+                    <button type="submit">
+                        {% trans "Sign Up" %}
+                    </button>
+                {% endslot %}
+            {% endelement %}
+        {% endif %}
+        
+        {% if PASSKEY_SIGNUP_ENABLED %}
+            <hr />
+            <div class="button-group">
+                <button onclick="window.location.href='{{ signup_by_passkey_url }}'" class="outline">
+                    {% trans "Sign up using a passkey" %}
+                </button>
+            </div>
+        {% endif %}
+        
+        {% if SOCIALACCOUNT_ENABLED %}
+            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        {% endif %}
+    </div>
+{% endblock content %}

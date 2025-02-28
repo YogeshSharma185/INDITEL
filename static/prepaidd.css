@@ -1,0 +1,176 @@
+body {
+    background-color: #000000;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #1c1c1e;
+    padding: 1rem;
+  }
+  
+  .navbar-brand {
+    color: #ff3b3f !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    color: #ffffff !important;
+    margin-right: 1rem;
+  }
+  
+  .nav-link:hover {
+    color: #ff3b3f !important;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #ff3b3f, #1c1c1e);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Rotating Text */
+  .rotating-text {
+    width: 100%;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    animation: rotateText 20s linear infinite;
+  }
+  
+  @keyframes rotateText {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  #abcdefg {
+    color: white;
+    background-color: #1c1c1e;
+    font-size: 1.2rem;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Prepaid Plans Section */
+  .ab {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-top: 2rem;
+    animation: slideIn 1s ease-in-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  
+  .carda, .cardb, .cardc, .cardd {
+    background-color: #1c1c1e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(255, 59, 63, 0.3);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .carda:hover, .cardb:hover, .cardc:hover, .cardd:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 59, 63, 0.5);
+  }
+  .hero {
+    background: linear-gradient(135deg, #ff3b3f, #1c1c1e);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .prepaid_name {
+    color: #ff3b3f;
+  }
+  
+  .price, .category, .desc, .validity, .sub_Category {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-danger {
+    background-color: #ff3b3f;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: #d71a28;
+    transform: scale(1.1);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1c1c1e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+    /* Footer */
+    footer {
+        background-color: #1c1c1e;
+        color: #ffffff;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+      .x{
+        text-align: center;
+      }      
+      .btn-plan {
+        background-color: #ff3b3f;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }

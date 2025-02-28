@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order</title>
+    <link rel="stylesheet" href="/static/about.css">
+</head>
+<body class="dark-theme">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/wifi">Wi-Fi Plans</a></li>
+                <li><a href="/prepaid">Prepaid Plans</a></li>
+                <li><a href="/dth">DTH Plans</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/payment">Payment Gateway</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="order-form">
+        <h1>Create an Order</h1>
+
+        {% if message %}
+            <div class="alert">{{ message }}</div>
+        {% endif %}
+
+        <form action="{% url 'create_order' %}" method="POST">
+            {% csrf_token %}
+            <label for="order_amount">Order Amount:</label>
+            <input type="number" id="order_amount" name="order_amount" value="1" required>
+
+            <label for="order_currency">Currency:</label>
+            <input type="text" id="order_currency" name="order_currency" value="INR" required>
+
+            <label for="customer_details">Customer Details:</label>
+            <textarea id="customer_details" name="customer_details" placeholder="Enter customer details..." required></textarea>
+
+            <button type="submit" class="btn">Create Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 INDITEL. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

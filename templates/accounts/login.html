@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% load socialaccount %}
+{% block content %}
+  <h2>Login</h2>
+  
+  <!-- Email & Password login form -->
+  <form method="post" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+
+  <hr>
+
+  <!-- Google login button -->
+  <a href="{% provider_login_url 'google' %}">
+    <button>Login with Google</button>
+  </a>
+{% endblock %}
