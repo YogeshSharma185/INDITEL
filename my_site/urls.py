@@ -9,4 +9,7 @@ urlpatterns = [
     path('', include('my_app.urls')),
     path('my_app/', include('my_app.urls')),
     # path('logout', LogoutView.as_view()) # default Django logout view at /logout 
-]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]
+# + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
