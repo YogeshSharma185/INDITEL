@@ -1,0 +1,113 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block head_title %}
+        {% endblock head_title %}
+    </title>
+    {% block extra_head %}
+    <style>
+        /* General Styles */
+        body {
+            background-color: #000000;  /* Black background */
+            color: white;  /* White text */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1c1c1e;  /* Dark background for navbar */
+            padding: 1rem;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            margin-right: 1rem;
+        }
+        
+
+        .nav-link:hover {
+            color: #ff3b3f !important;  /* Red on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff3b3f, #1c1c1e);  /* Red-black gradient */
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .x {
+            text-align: center;
+        }
+    </style>
+    {% endblock extra_head %}
+</head>
+<body>
+    {% block body %}
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <!-- Removed INDITEL brand from here -->
+                    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex">
+                            <!-- {% if user.is_authenticated %}
+                                {% url 'account_logout' as logout_url_ %}
+                                {% if logout_url_ %}
+                                    <a href="{{ logout_url_ }}" class="btn btn-outline-light me-4">{% trans "Sign Out" %}</a>
+                                {% endif %}
+                            {% else %}
+                                {% url 'account_login' as login_url_ %}
+                                {% if login_url_ %}
+                                    <a href="{{ login_url_ }}" class="btn btn-outline-light me-4">{% trans "Sign In" %}</a>
+                                {% endif %}
+                                {% url 'account_signup' as signup_url_ %}
+                                {% if signup_url_ %}
+                                    <a href="{{ signup_url_ }}" class="btn btn-outline-light me-4">{% trans "Sign Up" %}</a>
+                                {% endif %}
+                            {% endif %} -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>Welcome to INDITEL</h1>
+            <h2>Elevate Your Connectivity</h2>
+        </section>
+
+        {% block content %}
+        {% endblock content %}
+    {% endblock body %}
+    
+    <footer>
+        <p>&copy; 2025 INDITEL. All Rights Reserved.</p>
+        <p class="x">Developed by Yogesh Sharma</p>
+    </footer>
+
+    {% block extra_body %}
+    {% endblock extra_body %}
+</body>
+</html>

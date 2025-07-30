@@ -1,0 +1,11 @@
+django
+cashfree
+python-dotenv
+cashfree-pg
+cashfree_pg
+django-environ
+django-bootstrap5
+django-allauth
+psycopg2
+PyJWT
+cryptography

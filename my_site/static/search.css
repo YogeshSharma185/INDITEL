@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #1c1c1e;
+}
+
+.navbar-brand {
+    color: #ff3b3f !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-right: 1rem;
+}
+
+.nav-link:hover {
+    color: #ff3b3f !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #ff3b3f, #1c1c1e);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Results Section */
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 2rem 1rem;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Card Styles */
+.results-card {
+    background-color: #1c1c1e;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 59, 63, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.results-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 59, 63, 0.5);
+}
+
+.results-card h1,
+.results-card h2,
+.results-card h3,
+.results-card h4,
+.results-card h5 {
+    font-size: 1.25rem; /* Ensuring the font size is consistent across all card headings */
+    color: #ff3b3f; /* Highlight color for headings */
+    margin-bottom: 1rem;
+}
+
+.results-card h2 {
+    color: #ff3b3f; /* Make sure all h2 in results cards are red */
+}
+
+/* List Styling */
+.results-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.results-card ul li {
+    margin: 1rem 0;
+}
+
+.results-card ul li h3 {
+    font-size: 1.2rem;  /* Uniform font size for plan name and price */
+    font-weight: bold;
+    color: #ff3b3f;
+}
+
+.results-card ul li p {
+    font-size: 1.125rem; /* Same white font size for all plan details */
+    color: #ffffff; /* White text for descriptions and plan details */
+    margin: 0.5rem 0;
+}
+
+/* Make first line red in each plan */
+.results-card ul li:first-of-type h3 {
+    color: #ff3b3f; /* Make the first line red */
+}
+
+.results-card ul li:first-of-type p {
+    color: #ff3b3f; /* Make the first paragraph red */
+}
+
+/* Footer */
+footer {
+    background-color: #1c1c1e;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.x {
+    text-align: center;
+}
