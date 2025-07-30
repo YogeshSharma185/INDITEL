@@ -1,17 +1,6 @@
 # INDITEL — Mobile Recharge & Payments Platform
 
 INDITEL is a Django‑based platform for secure mobile, DTH, prepaid, postpaid, and Wi‑Fi recharges with Cashfree Payment Gateway integration, user authentication via email or social logins like Google, webhook‑based payment updates, and an admin dashboard to manage users, orders, and transactions.
-
-
-
-
-
-
-
-
-
-Ask ChatGPT
-
 ---
 
 ## 🚀 Overview
@@ -34,15 +23,6 @@ Ask ChatGPT
 - **Config via `.env`**: No secrets in code; easy per-environment config
 ---
 
-## 🧱 Architecture (High Level)
-
-**Core apps (example):**
-- `accounts/` — Allauth integration and profile extensions
-- `recharge/` — Recharge flows, order model, services
-- `payments/` — Cashfree client wrappers, webhook handlers
-- `core/` — Settings, utils, health checks
-
----
 
 ## 🔧 Tech Stack
 
