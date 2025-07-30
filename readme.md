@@ -55,14 +55,17 @@ INDITEL is a Django‑based platform for secure mobile, DTH, prepaid, postpaid, 
    ```bash
    pip install -r requirements.txt
    ```
+3. **Database and Env**
+   Place the database and env inside my_site folder , in parallel to manage.py
+   **The database is not included in the repo. Please email me if you need it.**
 
-4. **Run the app**
+5. **Run the app**
    ```bash
    cd my_site
    python manage.py runserver
    ```
 
 ---
-
+**The database is not included in the repo. Please email me if you need it.**
 
 > Built with ❤️ by Yogesh
